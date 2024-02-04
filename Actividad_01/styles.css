@@ -1,0 +1,174 @@
+html {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: sans-serif;
+    background: linear-gradient(95deg,white 70%, darkgrey);
+    font-weight: bold;
+
+    animation: fade-up 1.5s ease-in;
+}
+
+*,*::after,*::before {
+  box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(0px) scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}
+
+header {
+    padding: 4rem;
+    text-align: center;
+
+}
+
+.titulo {
+    font-size: 150%;
+    width: 30%;
+    text-align: center;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo marquee {
+  width: 100%;
+  border: thin solid;
+}
+
+.titulo img {
+    width: 5%;
+}
+
+.aficiones {
+    padding: 3rem;
+}
+
+.destino {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    column-gap: 2rem;
+}
+
+.destino img {
+    width: 30%;
+    filter: blur(0.5rem);
+    transition: all 0.2s ease-in-out;
+}
+
+.destino img:hover {
+    transform: scale(1.1);
+    filter: blur(0);
+}
+.personal {
+    width: 100%;
+}
+.personal ul {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: black;
+    list-style: none;
+
+}
+
+.personal ul li {
+    margin: 1rem;
+}
+
+.personal img {
+    width: 100%;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  .form-group {
+    margin: 1rem;
+  }
+footer input,
+  textarea {
+    width: 10rem;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+
+  input:hover,
+  textarea:hover {
+    border-color: darkred;
+  }
+
+  input[type="submit"] {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  input[type="email"] {
+    padding-right: 2rem;
+  }
+
+  input[type="submit"]:hover {
+    background-color: darkred;
+  }
+
+  .darkmode {
+    position: absolute;
+    width: 2.7rem;
+    height: 1.5rem;
+    right: 2rem;
+    top: 2.5%;
+    border: thin solid;
+    border-radius: 20px;
+    z-index: 9999;
+    cursor: pointer;
+  }
+
+  
+  .darkmode::before {
+    position: absolute;
+    content: "";
+    width: 1.3rem;
+    height: 1.3rem;
+    right: 0.025rem;
+    top: 0.03rem;
+    border: thin solid;
+    border-radius: 50%;
+    background-color: black;
+    transition: 0.4s;
+  }
+  
+  .darkmode.active::before {
+    right: 1.28rem;
+    background-color: white;
+  }
+  
+  body.night  {
+    background-color: black;
+    color: white;
+  }
+
+  
