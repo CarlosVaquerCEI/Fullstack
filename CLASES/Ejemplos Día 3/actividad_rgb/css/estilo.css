@@ -1,0 +1,82 @@
+*{
+    /* Para que todos los elementos tengan margen 0 y padding 0 */
+    margin:0;
+    padding:0;
+}
+body{
+    /* Tipo de fuente de todo el body */
+    font-family:Impact;
+}
+section{
+    /* Cada sección tiene display flex para alinearse al centro con una altura determinada */
+    height:50vh;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+}
+
+section:nth-child(2){
+    /* En este caso la segunda sección se dispondrá con este estilo */
+    justify-content: space-evenly;
+}
+.cuadro{
+    /* Cada uno de los contenedores contendrá estas propiedades */
+    border:1px solid black;
+    background-color:black;
+    width:248px;
+    height:248px;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}
+section:nth-child(1) .cuadro{
+    width:298px;
+    height:298px;
+}
+p{
+    /* Mix blend mode difference para el parrafo del primer elemento para invertir el color */
+    text-align:center;
+    color:white;
+    mix-blend-mode:difference;
+    font-size:2em;
+}
+.control{
+    width:250px;
+}
+input{
+    display:block;
+    width:100%;
+    margin-top:10px;
+}
+
+
+#guardarColor {
+    position: fixed;
+    top: 10rem;
+    right: 17rem;
+    width: 5rem;
+    height: 2rem;
+    background-color: grey;
+    cursor: pointer;
+}
+
+#borrarColor {
+    position: fixed;
+    top: 15rem;
+    right: 17rem;
+    width: 5rem;
+    height: 2rem;
+    background-color: grey;
+    cursor: pointer;
+}
+
+
+
+.borrarLista {
+    display: none;
+}
+
+.borrarColor {
+    display: none;
+}
+
