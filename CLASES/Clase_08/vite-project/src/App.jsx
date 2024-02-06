@@ -1,114 +1,52 @@
-// import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 
 function App() {
   // const [count, setCount] = useState(0)
 
-  // useEffect( () => {
-
-  //   console.clear()
-
-  //   // USO DE SPREAD (...) sirve para añadir, duplicar o eliminar elementos
-
-  //   // SPREAD PARA OBJETOS
-  //   const user = {
-  //     nombre: "Laura",
-  //     edad: 25,
-  //     domicilio: {
-  //       ciudad: Valencia,
-  //       cp: 14026
-  //     }
-  //   }
-
-  //   // Versión simple de hacer una copia multinivel, PEEERO,
-  //   // no funciona si mi objeto tiene funciones, undefined, NaN
-  //   const userCopy2 = JSON.parse(JSON.stringify(user))
-
-  //   // Me crea una shallow copy de mi objeto User
-  //   const userCopy = {...user}
-  //   userCopy.edad = 33
-  //   userCopy.domicilio.ciudad = "Madrid"
-
-  //   // console.log("user es: ", user)
-  //   // console.log("user es: ", userCopy)
-
-
-
-
-
-
-  //   // SPREAD PARA ARRAYS
-
-  //   const semana = ["lunes", "Martes", "Miercoles"]
-
-  //   // nomenclatura de manipulación de arrays en React
-  //   const semanaCopy = [...semana, "Jueves", "Viernes"]
-
-  //   // semanaCopy.push("Jueves")
-
-  //   // console.log("semana es: ", semana)
-  //   // console.log("semana es: ", semanaCopy)
-
-
-
-
-  //   // SPREAD PARA FUNCIONES
-
-  //   function mostrarVerduras (verdura1, verdura2) {
-  //     // console.log(verdura1, verdura2)
-  //   }
-
-  //   mostrarVerduras("Lechuga", "Zanahoria")
-
-  //   function mostrarVerdurasSpread (...datos) {
-  //     // console.log(datos)
-  //   }
-
-  //   mostrarVerdurasSpread("Lechuga", "Zanahoria", "Tomate", "Pepino")
-  // })
-
-
-
-
-
-  // const Componente = ({prop1,prop2,prop3}) => {
-  //   return (
-  //     <>
-  //     <h1>Soy un componente</h1>
-
-  //     <ul>
-  //       <li>{prop1}</li>
-  //       <li>{prop2}</li>
-  //       <li>{prop3}</li>
-  //     </ul>
-
-  //     </>
-
-  //   )
-  // }
-
-
-// Mis Datos 
-  const users = [
+  const usersData = [
     {
+      id: 1,
       nombre:"Carlos",
       apellido:"Vaquer",
+      isAdmin: true,
       edad: 24
     },
     {
+      id: 2,
       nombre:"Marcos",
       apellido:"Gallego",
+      deporte: "fútbol",
+      isAdmin: false,
       edad: 32
     },
     {
+      id: 3,
       nombre:"Raul",
       apellido:"Garcia",
+      isAdmin: true,
       edad: 19
     }
   ]
 
-  
+// miVariable es la variable
+// setMiVariable es una función que va a actualizar la variable
+const [users, setUsers] = useState(usersData) // le envío el valor defecto
 
+  
+const Usuario = ({nombre, isAdmin, apellido, edad, deporte="no tiene"}) => {
+  return (
+    <>
+    <li>
+      nombre: {nombre} <br />
+      apellido: {apellido} <br />
+      edad: {edad} <br />
+      {isAdmin &&  <> <strong>Soy Admin</strong> <br /> </>} 
+      deporte favorito: {deporte} <br /> <br />
+    </li>
+    </>
+  )
+  }
 
 
   return (
@@ -117,16 +55,25 @@ function App() {
 
       <h1>SPREADs</h1>
 
-      {
+      
 
-        users.map((user) => {
-          <h1>{user.nombre}</h1>
-        })
+      <button onClick= {() => {
 
+        let random = Math.random()
 
-      }
+          // users.push({id:4, nombre:"Dolores", apellido:"García", edad: 45})
+          setUsers([...users, {id:random, nombre:"Dolores", apellido:"García", edad: 45}])
+        }}>
+        AGREGAR USUARIO
+      </button>
 
-
+      <ul>
+        {
+          users.map((user) => (
+            <Usuario key= {user.id} {...user}/>
+          ))
+        }
+      </ul>
 
     </>
   )
