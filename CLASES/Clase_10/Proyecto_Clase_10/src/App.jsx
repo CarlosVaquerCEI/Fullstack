@@ -57,11 +57,13 @@ useEffect(() => {
 ------------------------------------------------------------*/
 
 const fetchData = async () => {
+
+  // await es para no esperar a la promesa
   const response = await fetch("./api/datos.json")
   const jsonData = await response.json()
 console.log("data es :", jsonData);
   setData(jsonData)
-  //setIsLoading(false)
+  setIsLoading(false)
 }
 
 
