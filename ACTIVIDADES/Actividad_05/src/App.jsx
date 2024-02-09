@@ -32,15 +32,16 @@ function App() {
     <h1>RICK AND MORTY</h1>
     <nav className='navegacion'>
       <ul>
+      <button className={paginaActual === "personajes" ? "active" : ""} onClick={() => setPaginaActual("personajes")}>
+          Personajes
+        </button>
         <button className={`item ${paginaActual === "lugares" ? "active" : ""}`} onClick={() => setPaginaActual("lugares")}> 
           Lugares
         </button>
         <button className={paginaActual === "episodios" ? "active" : ""} onClick={() => setPaginaActual("episodios")}>
           Episodios
         </button>
-        <button className={paginaActual === "personajes" ? "active" : ""} onClick={() => setPaginaActual("personajes")}>
-          Personajes
-        </button>
+        
       </ul>
     </nav>
 
@@ -50,10 +51,10 @@ function App() {
     </div>
 
 
-
+    {paginaActual === "personajes" && <Personajes />}
     {paginaActual === "lugares" && <Lugares/>}
     {paginaActual === "episodios" && <Episodios/>}
-    {paginaActual === "personajes" && <Personajes />}
+    
 
     </>
   )
