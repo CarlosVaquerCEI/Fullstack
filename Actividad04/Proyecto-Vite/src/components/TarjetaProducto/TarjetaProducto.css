@@ -1,0 +1,60 @@
+.tarjetaProducto {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.tarjetaProducto h1 {
+    flex-basis: 100vw;
+    margin-left: 2rem;
+}
+
+.tarjetaProducto img {
+    width: 25%;
+    box-shadow: 2px 2px 6px 2px black;
+    margin-left: 3rem;
+}
+
+.info-manga {
+    margin-left: 3rem;
+}
+
+.info-manga button {
+    width: 10rem;
+    color: white;
+    background-color: rgb(51, 51, 51);
+    border-radius: 0;
+}
+
+.info-manga button:hover {
+    color: black;
+    background-color: darkgoldenrod;
+
+}
+
+.info-manga span {
+    color: red;
+}
+
+.stock {
+    font-weight: bold;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.stock::before {
+    content: "Stock: ";
+}
+
+.stock::after {
+    content: " unidades";
+}
+
+.contenedorFlex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contenedorFlex img{
+    width: 70%;
+    margin-bottom: 2rem;
+}
