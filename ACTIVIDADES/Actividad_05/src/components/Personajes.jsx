@@ -23,20 +23,17 @@ export const Personajes = () => {
     return (
         <>
             <h1>Personajes</h1>
-
+        
             {
-                data.results?.map((personaje) => {
+                data.results.map((personaje) => {
                     return (
                         <>
                             <div className="grid-personajes">
 
-
-
                                 <h4>{personaje.name}</h4>
                                 <img src={personaje.image} />
-                                <h5>{personaje.species} - {personaje.gender} </h5>
+                                <h5>{personaje.species} - {personaje.gender}</h5>
                                 <h5>{personaje.status} / {personaje.origin.name}</h5>
-
 
                             </div>
 

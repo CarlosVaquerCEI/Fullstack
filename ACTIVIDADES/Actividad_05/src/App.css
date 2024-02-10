@@ -1,3 +1,7 @@
+h1 {
+  border: solid thin yellow;
+}
+
 ul {
   margin: 1rem;
   padding: 0;

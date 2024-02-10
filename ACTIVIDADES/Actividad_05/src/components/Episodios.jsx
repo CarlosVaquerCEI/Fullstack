@@ -26,9 +26,9 @@ export const Episodios = () => {
             <h1>Episodios</h1>
 
             {
-                data.results?.map((personaje) => {
+                data.results.map((episodio) => {
                     return (
-                        <h4>{personaje.name}</h4>
+                        <h4>{episodio.name}</h4>
                     )
                 })
             }
