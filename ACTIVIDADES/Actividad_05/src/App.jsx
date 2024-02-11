@@ -34,10 +34,7 @@ function App() {
         </ul>
       </nav>
 
-      <div className="pasarPagina">
-        <button>Anterior</button>
-        <button>Siguiente</button>
-      </div>
+
 
 
       {paginaActual === "personajes" && <Personajes />}

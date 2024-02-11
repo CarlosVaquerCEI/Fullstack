@@ -6,7 +6,7 @@ export const Personajes = () => {
     useEffect(() => {
         obtenerDatos()
     }, [])
-    const [data, setData] = useState({})
+    const [data, setData] = useState({ info: {}, results: [] })
 
     // Parte 2
 
@@ -23,11 +23,19 @@ export const Personajes = () => {
     return (
         <>
             <h1>Personajes</h1>
-        
+
+
+            <div className="pasarPagina">
+                <button>Anterior</button>
+                <button>Siguiente</button>
+            </div>
+
+
             {
                 data.results.map((personaje) => {
                     return (
                         <>
+
                             <div className="grid-personajes">
 
                                 <h4>{personaje.name}</h4>

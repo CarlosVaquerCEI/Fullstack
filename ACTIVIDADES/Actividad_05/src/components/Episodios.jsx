@@ -8,7 +8,7 @@ export const Episodios = () => {
         obtenerDatos()
     }, [])
 
-    const [data, setData] = useState({})
+    const [data, setData] = useState({ info: {}, results: [] })
 
     // Parte 2
 
@@ -25,10 +25,24 @@ export const Episodios = () => {
         <>
             <h1>Episodios</h1>
 
+            <div className="pasarPagina">
+                <button>Anterior</button>
+                <button>Siguiente</button>
+            </div>
+
             {
                 data.results.map((episodio) => {
                     return (
-                        <h4>{episodio.name}</h4>
+                        <>
+
+                            <div className="lista-episodios">
+                                <h2>{episodio.name}</h2>
+                                <h4>{episodio.episode}</h4>
+                                <h5>{episodio.air_date}</h5>
+                            </div>
+
+                        </>
+
                     )
                 })
             }

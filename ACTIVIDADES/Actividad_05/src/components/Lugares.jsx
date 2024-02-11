@@ -7,7 +7,7 @@ export const Lugares = () => {
         obtenerDatos()
     }, [])
 
-    const [data, setData] = useState({})
+    const [data, setData] = useState({ info: {}, results: [] })
 
     // Parte 2
 
@@ -24,7 +24,36 @@ export const Lugares = () => {
         <>
             <h1>Lugares</h1>
 
-        
+            <div className="pasarPagina">
+                <button>Anterior</button>
+                <button>Siguiente</button>
+            </div>
+
+            {
+                data.results.map((lugares) => {
+                    return (
+                        <>
+
+                            <div className="grid-lugares">
+
+                                <div className="data-lugares">
+                                    <h2>{lugares.name}</h2>
+
+                                    <h5>{lugares.type} - {lugares.dimension}</h5>
+                                </div>
+
+
+
+                            </div>
+
+                        </>
+
+
+                    )
+                })
+            }
+
+
         </>)
 }
 
