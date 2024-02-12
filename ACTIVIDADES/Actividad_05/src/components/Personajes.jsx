@@ -1,24 +1,6 @@
 import { useEffect, useState } from "react"
 
 
-const PageButtons = (props) => {
-    return (
-        <>
-        
-        <p className="numeracionPagina">Página: </p>
-
-
-        <button className="botonDetras" onClick={()=> {
-            if (props.pagina > 1) {
-                props.setPagina(props.pagina -1)
-            }
-        }}>Página {props.pagina -1}</button>
-
-        <button className="botonDelante" onClick={() => props.setPagina(props.pagina + 1)}>Página {props.pagina +1}</button>
-        
-        </>
-    )
-}
 
 export const Personajes = () => {
 
@@ -28,7 +10,27 @@ export const Personajes = () => {
     }, []) // cuando se crea el componente por primera vez, se carga el array vacío
 
     const [data, setData] = useState({ info: {}, results: [] })
-    const [pagina, setPagina] = useState(1)
+
+    const [loading, setLoading] = useState(true)
+    const [page, setPage] = useState(1)
+    const [filters, setFilters] = useState({
+        species: "",
+        status: "",
+        name: "",
+    })
+
+    const [filterResults, setFilterResults] = useState([])
+
+    const {info = {}, results = []} = data
+
+    useEffect(() => {
+        console.clear()
+        setTimeout(() => {
+            fetchCharacters(), 1000
+        })
+    })
+
+    
 
 
 
@@ -46,8 +48,7 @@ export const Personajes = () => {
 
     return (
         <>
-        
-        <PageButtons/>
+
         
             <h1>Personajes</h1>
 
