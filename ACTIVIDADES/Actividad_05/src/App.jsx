@@ -8,7 +8,7 @@ function App() {
 
   // 1. USO DE HOOKS Y DECLARACION DE VARIABLES
 
-  const [paginaActual, setPaginaActual] = useState("")
+  const [paginaActual, setPaginaActual] = useState("personajes")
 
   // 2. DEFINIR FUNCIONES
 
