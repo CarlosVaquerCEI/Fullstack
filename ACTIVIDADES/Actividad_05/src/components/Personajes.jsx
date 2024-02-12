@@ -1,12 +1,36 @@
 import { useEffect, useState } from "react"
 
+
+const PageButtons = (props) => {
+    return (
+        <>
+        
+        <p className="numeracionPagina">Página: </p>
+
+
+        <button className="botonDetras" onClick={()=> {
+            if (props.pagina > 1) {
+                props.setPagina(props.pagina -1)
+            }
+        }}>Página {props.pagina -1}</button>
+
+        <button className="botonDelante" onClick={() => props.setPagina(props.pagina + 1)}>Página {props.pagina +1}</button>
+        
+        </>
+    )
+}
+
 export const Personajes = () => {
 
     // Parte 1
     useEffect(() => {
         obtenerDatos()
-    }, [])
+    }, []) // cuando se crea el componente por primera vez, se carga el array vacío
+
     const [data, setData] = useState({ info: {}, results: [] })
+    const [pagina, setPagina] = useState(1)
+
+
 
     // Parte 2
 
@@ -22,13 +46,11 @@ export const Personajes = () => {
 
     return (
         <>
+        
+        <PageButtons/>
+        
             <h1>Personajes</h1>
 
-
-            <div className="pasarPagina">
-                <button>Anterior</button>
-                <button>Siguiente</button>
-            </div>
 
 
             {
