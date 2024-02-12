@@ -25,10 +25,6 @@ export const Episodios = () => {
         <>
             <h1>Episodios</h1>
 
-            <div className="pasarPagina">
-                <button>Anterior</button>
-                <button>Siguiente</button>
-            </div>
 
             {
                 data.results.map((episodio) => {

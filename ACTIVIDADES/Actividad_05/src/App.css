@@ -38,7 +38,7 @@ h5 {
 
 .grid-personajes {
   display: inline-block;
-  margin: 2rem 5rem;
+  margin: 2rem 4rem;
   padding: 1rem;
   transition: all 0.1s ease-in-out;
   background-color: rgb(61, 67, 72);

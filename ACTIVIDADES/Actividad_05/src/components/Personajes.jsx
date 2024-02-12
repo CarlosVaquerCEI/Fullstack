@@ -1,12 +1,38 @@
 import { useEffect, useState } from "react"
 
+
+
 export const Personajes = () => {
 
     // Parte 1
     useEffect(() => {
         obtenerDatos()
-    }, [])
+    }, []) // cuando se crea el componente por primera vez, se carga el array vacío
+
     const [data, setData] = useState({ info: {}, results: [] })
+
+    const [loading, setLoading] = useState(true)
+    const [page, setPage] = useState(1)
+    const [filters, setFilters] = useState({
+        species: "",
+        status: "",
+        name: "",
+    })
+
+    const [filterResults, setFilterResults] = useState([])
+
+    const {info = {}, results = []} = data
+
+    useEffect(() => {
+        console.clear()
+        setTimeout(() => {
+            fetchCharacters(), 1000
+        })
+    })
+
+    
+
+
 
     // Parte 2
 
@@ -22,13 +48,10 @@ export const Personajes = () => {
 
     return (
         <>
+
+        
             <h1>Personajes</h1>
 
-
-            <div className="pasarPagina">
-                <button>Anterior</button>
-                <button>Siguiente</button>
-            </div>
 
 
             {

@@ -24,10 +24,6 @@ export const Lugares = () => {
         <>
             <h1>Lugares</h1>
 
-            <div className="pasarPagina">
-                <button>Anterior</button>
-                <button>Siguiente</button>
-            </div>
 
             {
                 data.results.map((lugares) => {
