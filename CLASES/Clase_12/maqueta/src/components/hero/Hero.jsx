@@ -1,19 +1,23 @@
-import {pixar} from "../../deb/deb"
+import { pixar } from "../../deb/deb"
+
+import "./Hero.css"
 
 
-const {hero} = pixar
+const { hero } = pixar
 
 
 
 const Hero = () => {
-    const {href, src, text, backgroundsrc, backgroundtext} = hero
-    return(
+    const { href, src, text, backgroundsrc, backgroundtext } = hero
+    return (
         <>
             <section className="HeroImage">
-                <a className="HeroImage-a" href={href}>
-                    <img src={src} alt={text} className="HeroImage-imagen" />
-                    <img src={backgroundsrc} alt={backgroundtext} className="HeroImage-background" />
-                </a>
+                <div className="HeroImage-contenedor">
+                    <a className="HeroImage-a" href={href}>
+                        <img src={src} alt={text} className="HeroImage-imagen" />
+                    </a>
+                </div>
+
             </section>
         </>
     )

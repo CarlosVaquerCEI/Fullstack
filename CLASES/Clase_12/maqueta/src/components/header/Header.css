@@ -1,0 +1,59 @@
+.Header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.Header-h1 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 3rem;
+}
+
+.Header-h1-a {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: black;
+    transition: 0.1s ease-in-out;
+}
+
+.Header-a {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: black;
+    transition: 0.1s ease-in-out;
+}
+
+.Header-a:hover {
+    color: gray;
+    opacity: 0.4;
+}
+
+.Header-img {
+    width: 20%;
+}
+
+.Header-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: large;
+    letter-spacing: 0.1rem;
+}
+
+.Header-ul {
+    display: flex;
+    gap: 4rem;
+
+
+}
+
+.Header-li {
+    text-decoration: none;
+    list-style-type: none;
+    text-transform: uppercase;
+}
