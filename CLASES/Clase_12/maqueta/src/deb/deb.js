@@ -113,7 +113,12 @@ export const pixar = {
             },
         ],
 
-        infoButton: "personalinformation.html",
+        copyright: "jashdakdada",
+
+        button: {
+            href:"personalinformation.html",
+            text:"informacion Personal"
+        } 
 
     }
 

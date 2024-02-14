@@ -1,4 +1,5 @@
 import {pixar} from "../../deb/deb"
+import "./Columns.css"
 
 
 const {columns} = pixar
@@ -23,11 +24,13 @@ const Columna1 = () => {
     return (
             
         <>
-        <a className="Header-a" href={href}>
-            <img className="Header-img" src={src} alt={text} />
-        </a>
-
-        <h2>Careers At Pixar</h2>
+        <div className="Columna">
+            <a className="Columna-a" href={href}>
+                <img className="Columna-img" src={src} alt={text} />
+                
+            </a>
+            <h2>Careers At Pixar</h2>
+        </div>
     </>
             
     )
@@ -36,13 +39,21 @@ const Columna1 = () => {
 const Columna2 = () => {
     const {href, src, text} = imagenColumna2
     return (
-            <>
-                <a className="Header-a" href={href}>
-                    <img className="Header-img" src={src} alt={text} />
+        <>
+            <div className="Columna">
+                <a className="Columna-a" href={href}>
+                                <img className="Columna-img" src={src} alt={text} />
+                                
                 </a>
-
+                            
                 <h2>Elio</h2>
-            </>
+            </div>
+        
+
+            
+
+
+        </>
 
 
                 
@@ -55,11 +66,14 @@ const Columna3 = () => {
     return (
             
         <>
-        <a className="Header-a" href={href}>
-            <img className="Header-img" src={src} alt={text} />
-        </a>
+            <div className="Columna">
+                    <a className="Columna-a" href={href}>
+                        <img className="Columna-img" src={src} alt={text} />
+                        
+                    </a>
 
-        <h2>Win or Lose</h2>
+                    <h2>Win or Lose</h2>
+            </div>
     </>
             
     )

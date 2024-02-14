@@ -1,15 +1,18 @@
 import { pixar } from "../../deb/deb"
+import "./Footer.css"
 
 const { footer } = pixar
-const { rrss, nav, infoButton } = footer
+const { rrss, nav, button } = footer
 
 const Footer = () => {
+    const {href, text} = button
+
     return (
         <>
             <footer className="Footer">
                 <FooterRrss />
                 <FooterNav />
-                <button>{infoButton}</button>
+                <button>{text}</button>
 
             </footer>
 
@@ -60,10 +63,9 @@ const LiNav = (props) => {
         <li className="Footer-li-nav">
             <a href={href} className="Footer-a">{text}</a>
         </li>
-
     )
 
 }
-console.log(LiNav)
+
 
 export default Footer;
