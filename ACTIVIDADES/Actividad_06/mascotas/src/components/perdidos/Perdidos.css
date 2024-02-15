@@ -1,0 +1,32 @@
+
+.DigimonsPerdidos {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    padding-inline: 5rem;
+}
+
+.DigimonsPerdidos-Tarjeta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: thin solid black;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.DigimonsPerdidos-Image {
+    width: 50%;
+}
+
+.DigimonsPerdidos-Info {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 1rem;
+}
+.DigimonsPerdidos-Info h1{
+    font-size: large;
+    font-weight: 600;
+}
