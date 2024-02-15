@@ -1,30 +1,39 @@
 import "./Perdidos.css"
 
-const [paginaActual, setPaginaActual] = useState("listaDigimons")
 
-const Perdidos = ({items}) => {
+
+
+const Perdidos = ({ items }) => {
+
+    const itemsHeader = {
+        src: "https://1000logos.net/wp-content/uploads/2021/05/Digimon-logo.png",
+        nombre: "Digimon Perdidos",
+        info: "Estos son los Digimons que han sido perdidos por el usuario"
+    }
 
     return (
         <>
-        <section className="DigimonsPerdidos">
-            {
-            items.map((item) => {
-                return (
-            <div onClick={() => setPaginaActual("tarjetaDigimon")} className={`DigimonsPerdidos-Tarjeta ${paginaActual === "tarjetaDigimon" ? "active" : ""}`}>
-                <img className="DigimonsPerdidos-Image" src={item.src}/>
-                <div className="DigimonsPerdidos-Info">
-                    <h1>{item.nombre}</h1>
-                    <p>{item.info}</p>
-                </div>
-            </div>
-                )
-            })
-            }
-            
-        </section>
-        
+            <section className="DigimonsPerdidos">
+
+                {
+                    items.map((item) => {
+                        return (
+                            <div className="DigimonsPerdidos-Tarjeta">
+                                <img className="DigimonsPerdidos-Image" src={item.src} />
+                                <div className="DigimonsPerdidos-Info">
+                                    <h1>{item.nombre}</h1>
+                                    <p>{item.info}</p>
+                                </div>
+                            </div>
+                        )
+                    })
+                }
+
+            </section>
+
         </>
     )
 }
+
 
 export default Perdidos;

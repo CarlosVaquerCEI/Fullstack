@@ -1,11 +1,21 @@
+.Header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Header-image {
+    width: 50%;
+}
 
 .DigimonsPerdidos {
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
-    gap: 5rem;
-    padding-inline: 5rem;
+    gap: 3rem;
+    padding-inline: 2rem;
+    background-color: rgb(245, 245, 245);
 }
 
 .DigimonsPerdidos-Tarjeta {
@@ -15,18 +25,22 @@
     border: thin solid black;
     border-radius: 1rem;
     padding: 1rem;
+    background-color: white;
 }
 
-.DigimonsPerdidos-Image {
-    width: 50%;
-}
+
 
 .DigimonsPerdidos-Info {
     display: flex;
     flex-flow: column wrap;
     gap: 1rem;
 }
-.DigimonsPerdidos-Info h1{
-    font-size: large;
-    font-weight: 600;
+
+.DigimonsPerdidos-Info h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+}
+
+.DigimonsPerdidos-Info p {
+    font-size: 0.7rem;
 }

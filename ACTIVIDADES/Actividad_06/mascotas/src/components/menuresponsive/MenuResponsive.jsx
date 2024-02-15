@@ -20,6 +20,12 @@ const MenuResponsive = () => {
         }, 
     ]
 
+    const itemsHeader = {
+        src: "https://1000logos.net/wp-content/uploads/2021/05/Digimon-logo.png",
+        nombre: "Digimon Perdidos",
+        info: "Estos son los Digimons que han sido perdidos por el usuario"
+    }
+
     const toggleMenu = () => {
         // para que vaya cambiando de true a false, por eso en la función que actualiza le añadimos una negación (!) delante de la variable
         setIsOpen(!isOpen)
@@ -27,7 +33,7 @@ const MenuResponsive = () => {
 
     return (
         <header className="Header">
-            <h1>Logo</h1>
+            <img className="Header-image" src={itemsHeader.src} alt={itemsHeader.nombre} />
             <nav className={`Header-nav ${isOpen ? "isVisible" : ""}`}>
                 <ul className="Header-ul">
                     {itemsMenu.map ((item, index) => (
@@ -38,9 +44,8 @@ const MenuResponsive = () => {
             
             
             {/* Botón Responsive de Menú */}
-            <img onClick={toggleMenu} className="Header-btn">
-                BtnIcon
-            </img>
+            <img onClick={toggleMenu} src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1024px-Hamburger_icon.svg.png" className="Header-image-menu"/>
+                
         </header>
     )
 }
