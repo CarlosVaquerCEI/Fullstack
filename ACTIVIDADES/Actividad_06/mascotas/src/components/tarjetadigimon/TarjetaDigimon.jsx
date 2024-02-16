@@ -1,6 +1,9 @@
 import { useState } from "react";
+import './TarjetaDigimon.css';
 
 const Tarjeta = ({ items }) => {
+
+
     const [currentSlide, setCurrentSlide] = useState(0)
 
     const handleNextSlide = () => {
@@ -24,14 +27,30 @@ const Tarjeta = ({ items }) => {
 
     return (
         <>
-            <button onClick={handlePrevSlide}>Ant</button>
-            <img src={items[currentSlide]} alt={items[currentSlide]} />
-            {items[currentSlide]}
-            <button onClick={handleNextSlide}>Sig</button>
+
+            {
+                items.map((item) => {
+                    return (
+                        <div className="Slider">
+                            <button className="Slider-button" onClick={handlePrevSlide}>Prev</button>
+                            <img className="Slider-image" src={item[currentSlide]} alt={items[1]} />
+                            <button className="Slider-button" onClick={handleNextSlide}>Next</button>
+                        </div>
+                    )
+                })
+            }
+
+
+
+
+
+
 
         </>
 
     )
 }
+
+
 
 export default Tarjeta;

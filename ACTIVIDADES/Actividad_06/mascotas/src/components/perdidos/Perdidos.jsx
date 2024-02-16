@@ -18,6 +18,7 @@ const Perdidos = ({ items }) => {
                 {
                     items.map((item) => {
                         return (
+                            
                             <div className="DigimonsPerdidos-Tarjeta">
                                 <img className="DigimonsPerdidos-Image" src={item.src} />
                                 <div className="DigimonsPerdidos-Info">
