@@ -1,0 +1,52 @@
+.AñadirDigimon {
+
+    border: 1px solid #986619;
+    width: 500px;
+    height: 500px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 20px;
+
+}
+
+.AñadirDigimon h1 {
+    font-size: 200%;
+    text-align: center;
+    padding: 3rem;
+}
+
+.AñadirDigimon-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.AñadirDigimon-button {
+    width: 60%;
+    padding: 20px;
+    border-radius: 20px;
+    font-size: 120%;
+
+
+}
+
+.AñadirDigimon-button:hover {
+
+    background-color: #000000;
+    color: white;
+}
+
+.AñadirDigimon-cerrar {
+    position: fixed;
+    bottom: 1%;
+    left: 43%;
+    text-align: center;
+    padding: 20px;
+    border-radius: 50%;
+
+    ;
+}

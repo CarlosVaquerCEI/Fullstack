@@ -2,7 +2,13 @@
     display: flex;
     justify-content: space-between;
     padding: 1rem;
-    background-color: rgb(245, 245, 245);
+    background-color: white;
+    filter: invert();
+}
+
+.Header-image {
+    width: 50%;
+    filter: invert();
 }
 
 .Header-nav {
@@ -24,8 +30,8 @@
     font-size: 0.8rem;
 }
 
-.DigimonsPerdidos-Image {
-    width: 50%;
+.Header-image {
+    width: 30%;
 }
 
 .Header-image-menu {
