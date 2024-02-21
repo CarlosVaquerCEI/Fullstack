@@ -48,13 +48,14 @@ app.get("/ejemplo/c", (req, res, next) => {
         setTimeout(() => {
             console.log("Timeout de 2 seg")
         }, 2000)
-        resolve()
+        resolve() // resolve si funciona bien, si no lo lográ cumplir se ejecuta la función reject
     }).then(() => {
         // usamos .then para llamar a next cuando se resuelva la promesa
+        // si hay un reject nos iriamos a .catch
         next()
     })
 
-}, (req, res) => {
+}, (req, res) => { // finally se ejecuta siempre al final
     res.send("Promesa CUMPLIDA")
 })
 

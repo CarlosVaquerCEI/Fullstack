@@ -10,8 +10,8 @@ EJEMPLOS DE RUTAS CON EXPRESS
 
 ------------------------*/
 
-app.get("/", (req, res) => {
-    res.send("Bienvenido a Express.js")
+app.get("/", (req, res) => { // función de callback
+    res.send("Bienvenido a Express.js") // hacemos el return de la información con send
     console.log("El usuario entró al home")
 })
 
@@ -20,7 +20,7 @@ app.get("/perfil", (req, res) => {
     console.log("El usuario entró al home")
 })
 
-app.post("/users", (req, res) => {
+app.post("/users", (req, res) => { // con get obtenemos información, la enviamos a través de la url y con post se crea y se manda, get y post es el método de comunicación entre frontend y backend
     res.send("Sección Usuarios con POST");
     console.log("El usuario realizó un POST a users")
 })
@@ -32,7 +32,7 @@ app.get("/users", (req, res) => {
 // GET manda información a través de la url 
 // POST manda información internamente, el método para comunicarse con el backend
 
-// Métodos más comunes: GET, POST, PUT (actualizar), DELETE (borrar), OPTIONS (comunicarse con el servidor)
+// Métodos más comunes: GET, POST(crear elementos), PUT (actualizar), DELETE (borrar), OPTIONS (comunicarse con el servidor)
 
 
 // el método All habilita cualquier método anterior
@@ -42,7 +42,7 @@ app.all("/metodos", (req, res) => {
 })
 
 
-app.route("/libros")
+app.route("/libros") // route para concatenar varios métodos
     .get((req, res) => {
         res.send("Obtener libros")
     })
@@ -63,7 +63,7 @@ app.get ("/jsonUser", (req,res) => {
 
 })
 
-app.get("*", (req, res) => {
+app.get("*", (req, res) => { // * para que cualquier otra dirección va a caer en esta función
     res.send("<h3>Error 404 Not Found</h3>")
     console.log("Usuario accede a ruta inexistente")
 })

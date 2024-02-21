@@ -48,6 +48,8 @@ app.use("/admin", (req, res, next) => {
 
 
 
+// app use es un middleware que siempre se ejecutará si es una función sin ruta (sin "/admin" por ejemplo)
+
 
 
 app.listen(PORT, () => {

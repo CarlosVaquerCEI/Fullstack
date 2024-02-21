@@ -1,7 +1,7 @@
-const http = require("http");
+const http = require("http"); // require en vez de import ya que
 const cowsay = require("cowsay")
 
-const server = http.createServer( (req, res) => {
+const server = http.createServer( (req, res) => { // require es una petición, response un objeto que devuelve información
     // res.end("Hola desde mi servidor web")
     // res.end(cowsay.say({text: "Hola Mundo"}))
 
