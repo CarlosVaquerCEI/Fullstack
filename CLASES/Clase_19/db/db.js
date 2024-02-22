@@ -7,7 +7,7 @@ const datos = {
          "categoria": "Fantasía"
     },
     {
-         "id": 2,
+         "id": 765,
          "titulo": "1984",
          "autor": "George Orwell",
          "categoria": "Ciencia ficción"

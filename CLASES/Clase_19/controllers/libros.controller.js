@@ -39,6 +39,38 @@ export const getLibroById = (req, res) => {
         res.send(responseLibros)
 }
 
+export const getLibroByAutor = (req, res) => {
+
+    const author=helperCleanString(req.params.author)
+
+    responseLibros.data = listaLibros.filter((libro) => {
+        helperCleanString(libro.autor).includes(author)
+    })
+
+    responseLibros.data= listaLibros
+    responseLibros.msg="Libros por autor"
+    responseLibros.cant=listaLibros.length
+
+    res.status(200).send(responseLibros)
+
+}
+
+export const getLibroByCategoria = (req, res) => {
+    const cate=helperCleanString(req.params.cathegory)
+
+    responseLibros.data = listaLibros.filter((libro) => {
+        helperCleanString(libro.categoria).includes(cate)
+    })
+
+    responseLibros.data= listaLibros
+    responseLibros.msg="Libros por categoría"
+    responseLibros.cant=listaLibros.length
+
+    res.status(200).send(responseLibros)
+
+
+}
+
 export const addLibro = (req, res) => 
     {
         console.log(req.body)
@@ -56,9 +88,18 @@ export const addLibro = (req, res) =>
 }
 
 export const removeLibro = (req, res) => {
-
+    console.log(req.id)
+    
+        const idLibro = req.params.id
+        responseLibros.data.splice(index, 1)
+        listaLibros.indexOf(index)
+        responseLibros.msg="Libro eliminado con éxito"
+    
+        res.send(responseLibros)
 }
 
 export const updateLibro = (req, res) => {
 
 }
+
+

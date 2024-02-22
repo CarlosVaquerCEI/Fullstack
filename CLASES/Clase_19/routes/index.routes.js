@@ -1,6 +1,6 @@
 import { Router } from "express";
 import datos from "../db/db.js"
-import { addLibro, getAllLibros, getLibroById, removeLibro, updateLibro } from "../controllers/libros.controller.js";
+import { addLibro, getAllLibros, getLibroById, removeLibro, updateLibro, getLibroByAutor, getLibroByCategoria } from "../controllers/libros.controller.js";
 
 const router = Router()
 
@@ -20,49 +20,10 @@ const helperCleanString = (str) => {
 //      RUTAS DE LIBROS
 // ------------------------------
 
-// router.get("/libros", (req, res) => {
-//     responseLibros.data= listaLibros
-//     responseLibros.msg="Todos los libros"
-//     responseLibros.cant=listaLibros.length
-
-//     res.status(200).send(responseLibros)
-// })
-
 router.get("/libros", getAllLibros)
-
 router.get("/libros/:id", getLibroById)
-
-router.get("/libros/author/:author", (req, res) => {
-
-    const author=helperCleanString(req.params.author)
-
-    responseLibros.data = listaLibros.filter((libro) => {
-        helperCleanString(libro.autor).includes(author)
-    })
-
-    responseLibros.data= listaLibros
-    responseLibros.msg="Libros por autor"
-    responseLibros.cant=listaLibros.length
-
-    res.status(200).send(responseLibros)
-
-})
-
-router.get("/libros/cathegory/:cathegory", (req, res) => {
-    const cate=helperCleanString(req.params.cathegory)
-
-    responseLibros.data = listaLibros.filter((libro) => {
-        helperCleanString(libro.categoria).includes(cate)
-    })
-
-    responseLibros.data= listaLibros
-    responseLibros.msg="Libros por categoría"
-    responseLibros.cant=listaLibros.length
-
-    res.status(200).send(responseLibros)
-
-
-})
+router.get("/libros/author/:author", getLibroByAutor)
+router.get("/libros/cathegory/:cathegory", getLibroByCategoria)
 
 // AGREGAR NUEVO LIBRO
 router.post("/libros", addLibro)
@@ -72,6 +33,10 @@ router.delete("/libros/:id", removeLibro)
 
 // ACTUALIZAR LIBRO
 router.put("/libros/:id", updateLibro)
+
+
+
+
 
 // ------------------------------
 //      RUTAS DE AUTORES
@@ -91,6 +56,29 @@ router.get("/authors",(req, res) => {
     })
 
     responseLibros.data=uniqueAuthors
+
+
+})
+
+
+// ------------------------------
+//      RUTAS DE CATEGORIAS
+// ------------------------------
+
+router.get("/cathegory",(req, res) => {
+    responseLibros.data = listaLibros.map((libro) => libro.autor)
+
+
+    // usando forEach
+
+    const uniqueCathegories =[]
+    responseLibros.data.forEach((categoria) => {
+        if(!uniqueCathegories.includes(categoria)) {
+            uniqueCathegories.push(categoria)
+        }
+    })
+
+    responseLibros.data=uniqueCathegories
 
 
 })
