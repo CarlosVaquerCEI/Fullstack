@@ -1,5 +1,6 @@
 import { Router } from "express";
 import datos from "../db/db.js"
+import { addLibro, getAllLibros, getLibroById, removeLibro, updateLibro } from "../controllers/libros.controller.js";
 
 const router = Router()
 
@@ -19,38 +20,17 @@ const helperCleanString = (str) => {
 //      RUTAS DE LIBROS
 // ------------------------------
 
-router.get("/libros", (req, res) => {
+// router.get("/libros", (req, res) => {
+//     responseLibros.data= listaLibros
+//     responseLibros.msg="Todos los libros"
+//     responseLibros.cant=listaLibros.length
 
-    responseLibros.data= listaLibros
-    responseLibros.msg="Todos los libros"
-    responseLibros.cant=listaLibros.length
+//     res.status(200).send(responseLibros)
+// })
 
-    res.status(200).send(responseLibros)
+router.get("/libros", getAllLibros)
 
-})
-
-router.get("/libros/:id", (req, res) => {
-
-    // dento del req hay un objeto vacio que es params, pero en el momento que se rellene la url se rellenan los valores de params
-
-    const idLibro = req.params.id
-    console.log(req.params)
-
-    // reviso si id es un número
-    if(isNaN(idLibro))  {
-        responseLibros.msg="El id debe ser un libro"
-        delete responseLibros.data
-        res.status(400).send(responseLibros)
-    }
-
-    responseLibros.data= listaLibros.find((libro) => {
-        libro.id==idLibro
-    })
-    responseLibros.msg="Libro con id" + idLibro
-    console.log("Libros por id")
-    res.send(responseLibros)
-
-})
+router.get("/libros/:id", getLibroById)
 
 router.get("/libros/author/:author", (req, res) => {
 
@@ -83,6 +63,15 @@ router.get("/libros/cathegory/:cathegory", (req, res) => {
 
 
 })
+
+// AGREGAR NUEVO LIBRO
+router.post("/libros", addLibro)
+
+//ELIMINAR LIBRO
+router.delete("/libros/:id", removeLibro)
+
+// ACTUALIZAR LIBRO
+router.put("/libros/:id", updateLibro)
 
 // ------------------------------
 //      RUTAS DE AUTORES
