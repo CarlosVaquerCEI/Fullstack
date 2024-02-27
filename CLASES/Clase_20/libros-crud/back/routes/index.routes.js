@@ -9,10 +9,10 @@ router.get("/libros", getAllLibros);
 
 // CreateReadUpdateDelete - CRUD
 
-router.post("/libros", createLibro); // create
-router.get("/libros/:id", getLibroById); // read
-router.put("/libros/:id", updateLibro); // update
-router.delete("/libros/:id", deleteLibro); // delete
+router.post("/libros", createLibro);        // create
+router.get("/libros/:id", getLibroById);    // read
+router.put("/libros/:id", updateLibro);     // update
+router.delete("/libros/:id", deleteLibro);  // delete
 
 
 

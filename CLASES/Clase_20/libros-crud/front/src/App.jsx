@@ -1,5 +1,13 @@
 import './App.css'
 import {Routes, Route, Outlet, Link} from "react-router-dom"
+import { NotFound } from './components/NotFound'
+import Home from './components/Home'
+import Navigation from './components/Navigation'
+import BookList from './components/BookList'
+import BookAdd from './components/BookAdd'
+import AuthorList from './components/AuthorList'
+
+
 
 function App() {
 
@@ -10,8 +18,11 @@ function App() {
       <Route path="/" element={<Layout/>}>
 
       <Route index element={<Home/>} /> 
-      <Route path="/lista" element={<ListaDeLibros/>} /> 
-      <Route path="/contacto" element={<Contacto/>} /> 
+      <Route path="/lista" element={<BookList/>} /> 
+      <Route path="/agregar" element={<BookAdd/>} /> 
+      <Route path="/autores" element={<AuthorList/>} />
+
+      <Route path='*' element={<NotFound/>} ></Route>
 
       </Route>
 
@@ -24,44 +35,21 @@ function App() {
 function Layout () {
   return (
     <>
-      <h1>Soy header</h1>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Bienvenida</Link>
-          </li>
-          <li>
-            <Link to="/lista">Lista de libros</Link>
-          </li>
-          <li>
-            <Link to="/contacto">Contacto</Link>
-          </li>
-        </ul>
-      </nav>
-      {/* El Outlet renderiza el Child que provenga del Rote */}
+      
+      <Navigation/>
+      
+      {/* El Outlet renderiza el Child que provenga del Route */}
+      <div className="content">
       <Outlet/> 
-      <footer>Soy footer</footer>
+      </div>
+      
+      <footer className='footer'>Soy footer</footer>
     </>
 
   )
 }
 
-function Home () {
-  return (
-    <h1>Nuestra librería</h1>
-  )
-}
 
-function ListaDeLibros () {
-  return (
-    <h1>Lista De Libros</h1>
-  )
-}
 
-function Contacto () {
-  return (
-    <h1>Contacto</h1>
-  )
-}
 
 export default App
