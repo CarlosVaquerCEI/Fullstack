@@ -15,6 +15,7 @@ function App() {
   return (
     <>
     <Routes>
+
       <Route path="/" element={<Layout/>}>
 
       <Route index element={<Home/>} /> 
@@ -32,6 +33,7 @@ function App() {
   )
 }
 
+// plantilla de toda nuestra app
 function Layout () {
   return (
     <>

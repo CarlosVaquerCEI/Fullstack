@@ -1,39 +1,56 @@
 import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom" // redirige a donde queramos
+import { easyFetch } from "../helpers/utils"
 
-const BookForm = ({libro}) => {
-
-    useEffect(() => {
-        setFormData(libro)
-        }, [libro])
+const BookForm = ({libro, setEditarLibro}) => {
 
     const [formData, setFormData] = useState(libro)
 
     const {titulo, autor, categoria, id} = formData
 
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-        console.log("ENVIANDO FORMULARIO CON REACT")
+    const navigate = useNavigate()
 
-        try {
-            const url = "http://localhost:3000/API/v1/libros/" + id;
-            const response = await fetch (url, {
-                method:"PUT",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(formData)
-            })
 
-            if(!response.ok) {
-                throw new Error ("Hubo un probelma al enviar la información")
+    const handleCreateBook = async () => {
+        easyFetch({
+            url: "http://localhost:3000/API/v1/libros/",
+            method: "POST",
+            body: formData,
+
+            callback: (data) => {
+                console.log("ÉXITOOO CREADO - Cree con éxito", data)
+
+                // imre a la página de listaLibros
+                navigate("/lista")
             }
+        })
+    }
 
-            const responseData = await response.json()
-            console.log(responseData)
+    const handleRemoveBook = async () => {
+        easyFetch({
+            url: "http://localhost:3000/API/v1/libros/" + id,
+            method: "DELETE",
 
-        } catch (error){
-            console.log(error)
-        }
+            callback: (data) => {
+                console.log("ÉXITOOO ELIMINADO- Eliminé con éxito", data)
+
+                setEditarLibro(null)
+            }
+        })
+    }
+
+    const handleUpdateBook = async () => {
+        easyFetch({
+            url: "http://localhost:3000/API/v1/libros/" + id,
+            method: "PUT",
+            body: formData,
+
+            callback: (data) => {
+                console.log("ÉXITOOO ACTUALIZADO - Devolví con éxito", data)
+
+                setEditarLibro(null)
+            }
+        })
     }
 
     const handleInputChange = (e) => {
@@ -47,7 +64,7 @@ const BookForm = ({libro}) => {
     return (
         <>
 
-        <form onSubmit={handleSubmit} className="main-form">
+        <form className="main-form">
             <label htmlFor="">Nombre del libro</label>
             <input 
                 type="text" 
@@ -80,8 +97,20 @@ const BookForm = ({libro}) => {
                     onChange={handleInputChange}
                 />
 
-                <button type="submit">Guardar</button>
         </form>
+
+        {
+            // editando o creando (id=0)
+            id ? (
+                <>
+                <button onClick={handleUpdateBook}>Guardar</button>
+                <button onClick={handleRemoveBook}>Eliminar</button>
+                </>
+
+            ) : (
+                <button onClick={handleCreateBook}>Crear Nuevo</button>
+            )
+        }
         
         </>
 
