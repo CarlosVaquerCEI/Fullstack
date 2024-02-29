@@ -52,7 +52,7 @@ export const updateLibro = (req, res) => {
 
 
     // 2. obtener de la lista de libros el libro que quiero editar
-    const index = listaLibros.findIndex(libro => libro.id == id)
+    const index = listaLibros.findIndex(libro => libro.id == id) // id del body sea igual que id del parametro libro y así devuelva true
 
     // 3. actualizar el libro con los nuevos valores
 
@@ -60,7 +60,7 @@ export const updateLibro = (req, res) => {
         ...listaLibros[index],
         titulo,
         autor,
-        categoria
+        categoria // hago el spread para coger toda la información del libro indicado con index, saco todas sus propiedades, pero primero actualizo titulo, autor y categoria
     }
 
     // 4. respondo con la nueva lista de libros ACTUALIZADA
@@ -78,13 +78,13 @@ export const deleteLibro = (req, res) => {
 
     console.clear()
 
-    // obtener el id de la url no del body
-    const idLibro = req.params.id
+    // obtener el id de la url no del body ej: https/:dominio.com/:id / con el body puedes sacar más información, tiene más datos
+    const idLibro = req.params.id 
 
-    // obtener de la lista de libros, el indice del libro a eliminar
+    // obtener de la lista de libros, el indice del libro a eliminar, la posición que tiene en el array
     const index = listaLibros.findIndex(libro => libro.id == idLibro)
 
-    if(index !== -1) {
+    if(index !== -1) { // findIndex si no encuentra ningún elemento en el array devuelve -1
 
         // eliminar el item del array
         responseAPI.data=listaLibros[index]
