@@ -1,0 +1,23 @@
+.ListaProductos {
+    display: flex;
+    gap: 5rem;
+    width: 100vw;
+    overflow: scroll;
+
+}
+
+.ListaProductos-producto {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.ListaProductos-producto-categoria {
+    color: red;
+    text-transform: uppercase;
+}
+
+.ListaProductos-producto-imagen {
+    width: 13rem;
+    height: 13rem;
+}

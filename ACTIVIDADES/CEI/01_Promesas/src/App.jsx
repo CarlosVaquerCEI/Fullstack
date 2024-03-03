@@ -1,35 +1,28 @@
 import { useEffect, useState } from 'react'
 import './App.css'
+import Fakestore from './components/Fakestore/Fakestore'
+import RandomUsers from './components/RandomUsers/RandomUsers'
+import DungeonsDragons from './components/D&D/D&D'
+import VideoGames from './components/VideoGames/VideoGames'
+import Pokemon from './components/Pokemon/Pokemon'
 
 function App() {
 
-  useEffect(() => {
-    obtenerDatos
-  }, [])
-
-  const [data, setData] = useState([])
-
-  const obtenerDatos = async () => {
-    const responseProducts = await fetch('https://fakestoreapi.com/products')
-    const jsonDataProducts = await responseProducts.json()
-
-    setData(jsonDataProducts)
-
-  }
-
-  console.log(data)
-
   return (
     <>
-      <h2>Peticiones en ReactJS</h2>
+      <h1>Peticiones en ReactJS</h1>
 
-      {
-        data.map((producto) => {
-          <div className="gridProductos">
-            <h2>{producto.title}</h2>
-          </div>
-        })
-      }
+      <Fakestore/>
+      <hr />
+      <RandomUsers/>
+      <hr />
+      <DungeonsDragons/>
+      <hr />
+      <VideoGames/>
+      <hr />
+      <Pokemon/>
+
+
     </>
   )
 

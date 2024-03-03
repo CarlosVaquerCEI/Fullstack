@@ -1,0 +1,7 @@
+.ListaDyD {
+    display: flex;
+    width: 100vw;
+    gap: 4rem;
+    color: blue;
+    overflow: scroll;
+}

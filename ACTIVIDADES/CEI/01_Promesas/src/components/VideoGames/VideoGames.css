@@ -1,0 +1,23 @@
+.ListaVideojuegos {
+    display: flex;
+    gap: 3rem;
+    width: 100vw;
+    overflow: scroll;
+}
+
+.Juego {
+    display: flex;
+    flex-direction: column;
+    margin: 4rem;
+    text-align: center;
+    border: solid thin;
+}
+
+.JuegoNombre {
+    color: darkred;
+}
+
+.JuegoImagen {
+    width: 20rem;
+    height: 10rem;
+}

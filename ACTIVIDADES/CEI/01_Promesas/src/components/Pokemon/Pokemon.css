@@ -1,0 +1,12 @@
+.Pokemon {
+    text-align: center;
+}
+
+.PokemonNombre {
+    text-transform: uppercase;
+
+}
+
+.PokemonImagen {
+    width: 10rem;
+}

@@ -1,0 +1,18 @@
+.ListaUsuarios {
+    display: flex;
+    gap: 20px;
+    text-align: center;
+    gap: 5rem;
+    width: 100vw;
+    overflow: scroll;
+}
+
+.ListaUsuarios-info {
+    display: flex;
+    flex-flow: column;
+}
+
+.ListaUsuarios-imagen {
+    width: 15rem;
+    height: 15rem;
+}
