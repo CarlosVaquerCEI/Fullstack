@@ -28,6 +28,9 @@ const Users = sequalize.define("usuarios", {
 
 // Sincronizar mis modelos con mi base de datos
 // (Crear tablas en caso de que no existan)
+
+// alter: true actualiza las columnas nuevas que cree
+// force: true borra y re-crea la tabla en cada reinicio
 sequalize.sync({alter: true})
 
 app.get ("/", (req, res) => {
@@ -37,12 +40,12 @@ app.get ("/", (req, res) => {
 
 
 app.get("/users", async (req, res) => {
-    const users = await Users.findAll()
+    const users = await Users.findAll() // findAll trae todos los registros
     res.json(users)
 })
 
 app.post("/users", async (req, res) => {
-    const user = await Users.create(req.body)
+    const user = await Users.create(req.body) // create para crear nuevo elemento
     res.json(user)
 })
 

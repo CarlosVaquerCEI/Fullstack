@@ -14,15 +14,23 @@ const responseAPI = {
 
 
 export const getAllLibros = async (req, res) => {
-    const users = await Libros.findAll()
-    res.json(users)
+    const libros = await Libros.findAll()
+    responseAPI.data=libros
+    responseAPI.msg="Obtener Libros"
+    responseAPI.status="ok"
+    res.status(200).send(responseAPI)
 }
 
 
 export const createLibro = async (req, res) => {
 
-    const user = await Libros.create(req.body)
-    res.json(user)
+    delete req.body.id
+    const libro = await Libros.create(req.body)
+    
+    responseAPI.data=libro
+    responseAPI.msg="Crear nuevo libro"
+    responseAPI.status="ok"
+    res.status(200).send(responseAPI)
 }
 
 
@@ -34,22 +42,27 @@ export const getLibroById = async (req, res) => {
 
 export const updateLibro = async (req, res) => {
 
-    const user = await Libros.findByPk(req.params.id)
-    if(user){
-        await user.update(req.body)
-        res.json(user)
+    const libro = await Libros.findByPk(req.params.id) // paso 1 busco libro en la base de datos
+    if(libro){
+        await libro.update(req.body) // paso 2 actualizar el libro con los nuevos datos
+        responseAPI.data=libro
+        responseAPI.msg="Actualizar libro"
+        responseAPI.status="ok"
+        res.status(200).send(responseAPI)
     }else {
-        res.status(404).json({msg: "usuario no encontrado"})
+        res.status(404).json({msg: "libro no encontrado"})
     }
 }
 
 
 export const deleteLibro = async (req, res) => {
 
-    const user = await Libros.findByPk(req.params.id)
-    if(user){
-        await user.destroy(req.body)
-        res.json({msg: "usuario eliminado correctamente"})
+    const libro = await Libros.findByPk(req.params.id)
+    if(libro){
+        responseAPI.data=libro;
+        await libro.destroy(req.body)
+        responseAPI.msg="Libro eliminado"
+        res.status(200).send(responseAPI)
     }else {
         res.status(404).json({msg: "usuario no encontrado"})
     }

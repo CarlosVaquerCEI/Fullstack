@@ -29,6 +29,7 @@ export const Libros = sequalize.define("libros", {
     categoria: DataTypes.STRING
 })
 
+
 sequalize.sync({alter: true})
 
 
