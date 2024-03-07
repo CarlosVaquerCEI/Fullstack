@@ -15,7 +15,7 @@ export const getAllLibros = async (req, res) => {
     // const libros = await Libros.findAll()
 
 const [results, fields] = await connection.query(
-    "SELECT * FROM `libros` JOIN autores ON (libros.id_autor = autores.id) WHERE libros.deleted_at IS NULL"
+    `SELECT * FROM libros JOIN autores ON (libros.id_autor = autores.id) WHERE libros.deleted_at IS NULL`
 )
 
     responseAPI.data=results
@@ -27,12 +27,24 @@ const [results, fields] = await connection.query(
 
 export const createLibro = async (req, res) => {
 
-    const [results, fields] = await connection.query(
-        "INSERT INTO `libros` (`id`, `libro`, `id_autor`, `calificacion`, `lanzamiento`, `editorial`, `precio`, `cant_vendidos`, `num_paginas`, `created_at`, `updated_at`, `deleted_at`)"
-    )
 
+    const {titulo, id_autor=0, cali=0, lanzamiento=0, editorial="", precio=0, cant_vendidos=0, num_paginas=0} = req.body
+
+    if(titulo == "" || id_autor == 0) {
+        responseAPI.msg="Error al crear codigo";
+    }
+
+    const sqlQuery = `INSERT INTO libros 
+    (libro, id_autor, calificacion, lanzamiento, editorial, precio, cant_vendidos, num_paginas) 
+    VALUES 
+    ('${titulo}', '${id_autor}', '${cali}', '${lanzamiento}', '${editorial}', '${precio}', '${cant_vendidos}', '${num_paginas}');`;
+
+    console.log(sqlQuery)
+
+
+    const [newBook, fields] = await connection.query(sqlQuery)
     
-    responseAPI.data=libro
+    responseAPI.data=newBook
     responseAPI.msg="Crear nuevo libro"
     responseAPI.status="ok"
     res.status(200).send(responseAPI)
@@ -56,15 +68,20 @@ export const getLibroById = async (req, res) => {
 
 export const updateLibro = async (req, res) => {
 
-    const [results, fields] = await connection.query(
-        "UPDATE `libros` SET `id`,`libro`,`id_autor`,`calificacion`,`lanzamiento`,`editorial`,`precio`,`cant_vendidos`,`num_paginas`,`created_at`,`updated_at`,`deleted_at`"
-    )
+    const {titulo, id_autor=0, cali=0, lanzamiento=0, editorial="", precio=0, cant_vendidos=0, num_paginas=0} = req.body
+    const id_libro = req.params.id
+
+    const sqlU = `UPDATE libros 
+    SET libro = '${titulo}', id_autor = '${id_autor}', calificacion = '${cali}', lanzamiento = '${lanzamiento}', editorial = '${editorial}', precio = '${precio}', cant_vendidos = '${cant_vendidos}', num_paginas = '${num_paginas}'
+     WHERE libros.id = ${id_libro};`;
 
 
+    const [libroActualizado, fields] = await connection.query(sqlU)
 
-    if(results){
-        await results.update(req.body)
-        responseAPI.data=results
+
+    if(libroActualizado){
+        await libroActualizado.update(req.body)
+        responseAPI.data=libroActualizado
         responseAPI.msg="Actualizar libro"
         responseAPI.status="ok"
         res.status(200).send(responseAPI)
@@ -73,17 +90,22 @@ export const updateLibro = async (req, res) => {
     }
 }
 
+
 export const deleteLibro = async (req, res) => {
 
-    const [results, fields] = await connection.query(
-        "DELETE FROM `libros` WHERE "
-    )
+    const {titulo, id_autor=0, cali=0, lanzamiento=0, editorial="", precio=0, cant_vendidos=0, num_paginas=0} = req.body
+    const id_libro = req.params.id
+
+    const sqlD = `DELETE FROM libros WHERE id = ${id_libro}`
+
+
+    const [libroEliminado, fields] = await connection.query(sqlD)
 
 
 
-    if(results){
-        responseAPI.data=results;
-        await results.destroy(req.body)
+    if(libroEliminado){
+        responseAPI.data=libroEliminado;
+        await libroEliminado.destroy(req.body)
         responseAPI.msg="Libro eliminado"
         res.status(200).send(responseAPI)
     }else {
