@@ -24,17 +24,6 @@ export const connection = await mysql.createConnection({
     database: "db_biblioteca"
 })
 
-
-// const [results, fields] = await connection.query(
-//     "SELECT * FROM `libros` "
-// )
-
-// console.log(results)
-// console.log(fields)
-
-
-
-
 app.get("/", (req, res) => {
     res.setHeader("Content-type", "text/html"); 
 

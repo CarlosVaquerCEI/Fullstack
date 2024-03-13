@@ -1,9 +1,13 @@
 import { Router } from "express";
 import {getAllLibros, createLibro, getLibroById, updateLibro, deleteLibro} from "../controllers/libros.controller.js"
+import { loginUsers } from "../controllers/users.controller.js";
 
 const router = Router()
 
 router.get("/libros", getAllLibros);
+
+
+router.post("/users", loginUsers)
 
 // CreateReadUpdateDelete - CRUD
 

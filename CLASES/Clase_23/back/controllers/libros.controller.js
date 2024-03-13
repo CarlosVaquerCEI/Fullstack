@@ -2,11 +2,11 @@ import misDatos from "../db/datos.js"
 //import { Libros } from "../index.js"
 import { connection } from "../index.js"
 
-const listaLibros = misDatos.libros
+//const listaLibros = misDatos.libros
 
 
 const responseAPI = {
-    data: listaLibros,
+    data: [],
     msg: "",
     status: "ok"
 }
