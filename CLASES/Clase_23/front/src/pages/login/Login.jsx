@@ -6,7 +6,7 @@ const Login = () => {
     const [errorMessage, setErrorMessage] = useState('');
   
     const handleLogin = async (e) => {
-      e.preventDefault();
+      e.preventDefault(); // para que no envíe directamente el formulario y pueda hacer otras cosas
 
       easyFetch({
         url: "http://localhost:3000/API/v1/users/",

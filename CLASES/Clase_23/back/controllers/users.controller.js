@@ -1,5 +1,6 @@
 import { connection } from "../index.js"
 
+
 export const loginUsers = async (req,res) => {
     const [results, fields] = await connection.query(
         `SELECT * FROM users WHERE users.deleted_at IS NULL`

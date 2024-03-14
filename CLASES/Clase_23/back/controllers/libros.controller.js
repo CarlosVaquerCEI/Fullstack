@@ -15,7 +15,13 @@ export const getAllLibros = async (req, res) => {
     // const libros = await Libros.findAll()
 
 const [results, fields] = await connection.query(
-    `SELECT * FROM libros JOIN autores ON (libros.id_autor = autores.id) WHERE libros.deleted_at IS NULL`
+    `SELECT libros.*, autores.autor, categorias.categoria 
+    FROM libros 
+    JOIN autores ON (libros.id_autor = autores.id) 
+    LEFT JOIN link_libros_categorias link ON (libros.id = link.id_libro)
+    LEFT JOIN categorias ON (categorias.id = link.id_categoria)
+    
+    WHERE libros.deleted_at IS NULL`
 )
 
     responseAPI.data=results
@@ -80,7 +86,7 @@ export const updateLibro = async (req, res) => {
 
 
     if(libroActualizado){
-        await libroActualizado.update(req.body)
+        // await libroActualizado.update(req.body)
         responseAPI.data=libroActualizado
         responseAPI.msg="Actualizar libro"
         responseAPI.status="ok"
@@ -105,7 +111,7 @@ export const deleteLibro = async (req, res) => {
 
     if(libroEliminado){
         responseAPI.data=libroEliminado;
-        await libroEliminado.destroy(req.body)
+        // await libroEliminado.destroy(req.body)
         responseAPI.msg="Libro eliminado"
         res.status(200).send(responseAPI)
     }else {

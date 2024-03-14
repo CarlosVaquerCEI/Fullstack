@@ -1,12 +1,14 @@
 import './App.css'
 import {Routes, Route, Outlet, Link} from "react-router-dom"
-import { NotFound } from './components/NotFound'
-import Home from './components/Home'
+
+// Páginas (mis componentes principales)
+import { NotFound } from './pages/notFound/NotFound'
+import Home from './pages/home/Home'
 import Navigation from './components/Navigation'
-import BookList from './components/BookList'
-import BookAdd from './components/BookAdd'
-import AuthorList from './components/AuthorList'
-import Login from './components/Login'
+import BookList from './pages/books/BookList'
+import BookAdd from './pages/books/BookAdd'
+import AuthorList from './pages/author/AuthorList'
+import Login from './pages/login/Login'
 
 
 
