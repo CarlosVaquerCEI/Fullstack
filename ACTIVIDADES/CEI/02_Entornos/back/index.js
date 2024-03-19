@@ -12,10 +12,10 @@ app.use("/API/v1/", indexRoutes)
 app.get("/", (req, res) => {
 
     try {
-        res.status(200).send("MAIN API PAGE")
+        res.status(200).send("En buen funcionamiento")
 
     } catch (error) {
-        res.status(500).send(error)
+        res.status(500).send("Error 500")
     }
 
 })
