@@ -1,0 +1,76 @@
+.Principal-Main {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    z-index: 99999;
+}
+
+.Principal-Images {
+    position: relative;
+    width: 30%; /* Reducción del tamaño de las imágenes al 20% */
+    height: auto;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Banner-Img {
+    width: 100%; /* Tamaño de la imagen al 100% del contenedor */
+    opacity: 0; /* Inicialmente ocultar todas las imágenes */
+    transition: opacity 0.5s ease-in-out; /* Transición de fade-in/fade-out */
+    position: absolute; /* Posicionamiento absoluto */
+    top: 50%; /* Alineación vertical al centro */
+    left: 50%; /* Alineación horizontal al centro */
+    transform: translate(-50%, -50%); /* Corrección para centrar la imagen */
+}
+
+.Video_Background {
+    width: 100vw;
+    height: 100vh;
+}
+
+video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.Principal-Content {
+    position: absolute;
+    width: 100%;
+    height: 90vh;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    color: white;
+}
+
+.Principal-Content h1 {
+    font-size: 2rem; /* Reducción del tamaño del h1 */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .2);
+}
+
+.CategoriasProductos {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
