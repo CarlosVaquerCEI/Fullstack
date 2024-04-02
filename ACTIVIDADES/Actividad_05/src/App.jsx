@@ -8,7 +8,7 @@ function App() {
 
   // 1. USO DE HOOKS Y DECLARACION DE VARIABLES
   
-  const [paginaActual, setPaginaActual] = useState("personajes") // primer elemento - variable -- segundo elemento - función que actualiza la variable -- tercer elemento - valor de la variablw inicial
+  const [paginaActual, setPaginaActual] = useState("personajes") // primer elemento - variable -- segundo elemento - función que actualiza la variable -- tercer elemento - valor de la variable inicial
 
 
   // 2. DEFINIR FUNCIONES
@@ -16,7 +16,7 @@ function App() {
   // 3. RENDERIZADO
 
 
-  return (
+  return ( 
     <>
 
       <h1>RICK AND MORTY</h1>
