@@ -104,7 +104,7 @@ const SliderDigimon = ({ imagenes }) => {
 
         <div>
             <div>
-                <img className='DigimonInfo-img' src={imagenes[imagenActual]} alt="" />
+                <img onClick={nextImage} className='DigimonInfo-img' src={imagenes[imagenActual]} alt="" />
                 <div className='DigimonInfo-flechas'>
                     <i onClick={previoustImage}>Prev</i>
                     <i onClick={nextImage}>Next</i>
